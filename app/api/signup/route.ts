@@ -34,9 +34,9 @@ export async function POST(req: NextRequest) {
 
   try {
     const event = webhook.verify(body, {
-      "svix-id": "svixId",
-      "svix-signature": "svixTimestamp",
-      "svix-timestamp": "svixSignature",
+      "svix-id": svixId,
+      "svix-signature": svixSignature,
+      "svix-timestamp": svixTimestamp,
     }) as Event;
 
     if (event.type === "user.created") {
@@ -48,7 +48,7 @@ export async function POST(req: NextRequest) {
     await prisma.user.create({
       data: {
         email: email_addresses[0].email_address,
-        name: `${first_name} ${last_name}`,
+        userName: `${first_name} ${last_name}`,
         clerkId: id,
       },
     });
