@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "postinstall": "prisma generate",
+    "prisma-push": "npx prisma db push",
+    "prisma-generate": "npx prisma generate"
   },
   "dependencies": {
     "@clerk/nextjs": "^7.0.1",
